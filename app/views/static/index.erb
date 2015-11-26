@@ -1,2 +1,7 @@
-<h1>Hello World</h1>
-<p>See Me in views/static/index.html.erb</p>
+<div id="index-title">Questions For You</div>
+<% if @questions %>
+	<% @questions.each do |question| %>
+		<hr>
+		<p><a href="/questions/<%= question.id %>"><%= question.body %></a><br />by <a href="/users/<%= question.user.id %>"><%= question.user.name %></a></p>
+	<% end %>
+<% end %>

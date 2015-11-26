@@ -1,0 +1,8 @@
+<h2>Edit your profile</h2>
+<form action="/users/<%= current_user.id %>" method="post">
+	<input type="hidden" name="_method" value="patch">
+	<input type="text" value="<%= current_user.name %>" name="user[name]">
+	<input type="text" value="<%= current_user.email %>" name="user[email]">
+	<input type="password" value="<%= current_user.password %>" name="user[password]">
+	<input type="submit" value="Update">
+</form>

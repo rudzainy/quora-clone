@@ -1,0 +1,27 @@
+<h2><%= @user.name %>'s profile</h2>
+<%= @user.name %><br />
+<%= @user.email %><br />
+
+<% if @user == current_user %>
+	<a href="/users/<%= @user.id %>/update"><button>Edit profile</button></a>
+<% end %>
+
+<h3><%= @user.name %>'s Questions</h3>
+
+<% if @questions %>
+	<% @questions.each do |question| %>
+		<p><a href="/questions/<%= question.id %>"><%= question.body %></a><br />by <a href="/users/<%= question.user.id %>"><%= question.user.name %></a></p>
+	<% end %>
+<% else %>
+	<p>User has no questions</p>
+<% end %>
+
+
+<h3><%= @user.name %>'s Answers</h3>
+<% if @answers %>
+	<% @answers.each do |answer| %>
+		<p><a href="/questions/<%= answer.question.id %>"><%= answer.body %></a><br />by <a href="/users/<%= answer.user.id %>"><%= answer.user.name %></a></p>
+	<% end %>
+<% else %>
+	<p>User has no answers</p>
+<% end %>

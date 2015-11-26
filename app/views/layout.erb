@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="/css/normalize.css">
+		<link rel="stylesheet" href="/css/application.css">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<title>Teng(Quora)k</title>
+	</head>
+	<body>
+		<div id="navbar-container">
+			<nav id="top-nav">
+				<div id="nav-logo">
+					<a href="/">Teng(Quora)k</a>
+				</div>
+				<div id="nav-question">
+					<form action="/questions/create" method="post">
+						<input type="text" name="question[body]" placeholder="Ask Teng(Quora)k" id="question-box" />
+					</form>
+				</div>
+				<div id="nav-user">
+					<% if logged_in? %>
+						<a href="/users/<%= current_user.id %>"><%= current_user.name %></a>
+					<% else %>
+						<a href="/login">Login / Sign up</a>
+					<% end %>
+				</div>
+				<div class="clearfix"></div>
+			</nav>
+		</div>
+		<div id="main-container">
+			<% if @message %>
+				<div id="message-container">
+					<%= @message %>
+				</div>
+			<% end %>
+			<div id="container-left">lala</div>
+			<div id="gutter">x</div>
+			<div id="container-content">
+				<%= yield %>
+			</div>
+			<div id="gutter">x</div>
+			<div id="container-right">lala</div>
+		</div>
+	</body>
+</html>

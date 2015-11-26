@@ -1,0 +1,6 @@
+<form action="/answers/create" method="post">
+	<input type="text" name="answer[body]" placeholder="Write your answer here">
+	<input type="hidden" name="answer[question_id]" value="<%= @question.id %>">
+	<input type="hidden" name="answer[user_id]" value="<%= current_user.id %>">
+	<input type="submit" value="Submit">
+</form>
