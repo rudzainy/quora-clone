@@ -5,8 +5,7 @@
 	<input type="submit" value="Update">
 </form>
 <hr>
-<form action="/questions/<%= @question.id %>" method="post">
+<form action="/questions/<%= @question.id %>" method="post" class="form-inline">
 	<input type="hidden" name="_method" value="delete">
-	Delete question? <b>(Warning: This action is unreversible!)</b><br>
-	<input type="submit" value="Delete question">
+	<input type="submit" value="Delete question"> Delete question? <b>(Warning: This action is unreversible!)</b>
 </form>

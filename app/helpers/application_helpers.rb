@@ -23,14 +23,6 @@ helpers do
 	  "#{number} #{text}"
 	end
 
-	def count_votes(vote_count)
-		if vote_count == nil
-			vote_count = 0
-		else
-			vote_count = vote_count.count
-		end
-	end
-
 	def current_user
 		if session[:user_id]
 			@current_user ||= User.find(session[:user_id])

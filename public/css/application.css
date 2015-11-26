@@ -132,6 +132,28 @@ footer {
 	color: #666;
 }
 
+.form-inline {
+	display: inline;
+}
+
+.bar {
+	margin-left: 2px;
+	border-left: 1px solid #a9ccee;
+}
+
+.downvote {
+	border: none !important;
+	background-color: white !important;
+	color: #999999 !important;
+	font-weight: 500 !important;
+	margin: 0 0 0 10px !important;
+	padding: 0 !important;
+}
+
+.downvote:hover {
+	text-decoration: underline !important;
+}
+
 #main-container, #top-nav {
 	margin: 0 auto;
 	max-width: 960px;

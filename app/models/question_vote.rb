@@ -3,18 +3,30 @@ class QuestionVote < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :question
 
-	# Vote: 0 = downvote, 1 = upvote 
+	# def create_vote(question_vote)
+	# 	QuestionVote.create(question_vote)
+	# end
 
-	def voted?(question_id)
-		if QuestionVote.find_by(question_id: question_id, user_id: current_user.id)
-			true
-		else
-			false
-		end
+  # Vote: -1 = downvote, 1 = upvote 
+
+  # def self.voted?
+  #   QuestionVote.find_by(question_id: self.id, user_id: current_user.id)
+  # end
+
+  def upvoted?
+    true if self.vote == 1
+  end
+
+  def downvoted?
+		true if self.vote == -1
 	end
 
-	def create_vote(question_vote)
-		QuestionVote.create(question_vote)
-	end
+  def change_vote
+    if self.vote == 1
+      self.update(vote: -1)
+    else
+      self.update(vote: 1)
+    end
+  end
 
 end

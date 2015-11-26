@@ -14,12 +14,11 @@ end
 get '/questions/:id' do
 	@question = Question.find(params[:id])
 	@answers = Answer.where(question_id: @question.id)
-	vote_count = QuestionVote.find_by(question_id: @question.id)
-	@vote_count = count_votes(vote_count)
+	@question_vote_count = @question.count_votes
 	erb :"question/show"
 end
 
-get '/questions/:id/update' do
+get '/questions/:id/edit' do
 	@question = Question.find(params[:id])
 	erb :"question/edit"
 end

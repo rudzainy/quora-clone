@@ -4,9 +4,15 @@
 <% if logged_in? %>
 	<button id="answer-button"><i class="fa fa-pencil"></i> Write answer</button>
 <% end %>
-<button>Upvote<%= " | #{@vote_count}" if @vote_count > 0 %></button>
+<form action="/questions/<%= @question.id %>/upvote" method="post" class="form-inline">
+	<button>Upvote<%= "&nbsp;<span class='bar'>&nbsp;</span>#{@question_vote_count}" if @question_vote_count != 0 %></button>
+</form>
+<form action="/questions/<%= @question.id %>/downvote" method="post" class="form-inline">
+	<input type="submit" value="Downvote" class="downvote">
+</form>
+<a href=""></a>
 <% if @question.user == current_user %>
-	<a href="/questions/<%= @question.id %>/update"><button>Edit question</button></a>
+	<a href="/questions/<%= @question.id %>/edit"><button>Edit question</button></a>
 <% end %>
 
 <div id="answer-box">
@@ -29,7 +35,12 @@
 			<%= answer.body %><br />
 			<date>Updated <%= calculate_time_ago(answer.updated_at) %></date>
 		</div>
-		<button>Upvote<%= " | #{@vote_count}" if @vote_count > 0 %></button>
+		<form action="/questions/<%= @question.id %>/answer/<%= answer.id %>/upvote" method="post" class="form-inline">
+			<button>Upvote<%= "&nbsp;<span class='bar'>&nbsp;</span>#{answer.count_votes}" if answer.count_votes != 0 %></button>
+		</form>
+		<form action="/questions/<%= @question.id %>/answer/<%= answer.id %>/downvote" method="post" class="form-inline">
+			<input type="submit" value="Downvote" class="downvote">
+		</form>
 		<% if answer.user == current_user %>
 			<a href="/answers/<%= answer.id %>/edit"><button>Edit answer</button></a>
 		<% end %>
