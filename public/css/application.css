@@ -1,3 +1,8 @@
+body {
+	font-family: serif;
+	line-height: 1.5em;
+}
+
 hr {
   border: 0;
   height: 0;
@@ -5,10 +10,16 @@ hr {
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+h1, h2, h3, h4, h5, h6 {
+	font-family: sans-serif;
+	margin-top: 0;
+	margin-bottom: 7px;
+}
+
 a {
 	text-decoration: none;
 	color: #333;
-	font-weight: bold;
+	font-family: sans-serif;
 }
 
 a:hover {
@@ -22,7 +33,8 @@ button, input[type="submit"] {
 	border: 1px solid #bbcadc;
 	font-weight: 600;
 	font-size: .75em;
-	padding: 5px;
+	font-family: sans-serif;
+	padding: 2px 7px;
 }
 
 button:hover, input[type="submit"]:hover {
@@ -43,6 +55,21 @@ label {
 	width: 200px;
 	margin-right: 15px;
 	display: inline-block;
+}
+
+date {
+	font-size: .8em;
+	color: #999999;
+	margin: 5px 0 0 0;
+	font-family: sans-serif;
+}
+
+footer {
+	background-color: #eee;
+	padding: 30px 50px;
+	margin: 70px auto 0 auto;
+	text-align: center;
+	font-size: .8em;
 }
 
 .clearfix {
@@ -67,6 +94,24 @@ label {
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
+}
+
+.avatar-box-left {
+	float: left;
+	margin-right: 10px;
+}
+
+.avatar-box-right {
+	float: left;
+	font-size: .9em;
+}
+
+.container-title {
+	text-transform: uppercase;
+	font-family: sans-serif;
+	font-size: .8em;
+	font-weight: 600;
+	color: #666;
 }
 
 #main-container, #top-nav {
@@ -99,7 +144,7 @@ label {
 }
 
 #nav-logo {
-	padding-top: 8px;
+	padding-top: 12px;
 	width: 165px;
 	height: 40px;
 }
@@ -130,7 +175,7 @@ label {
 }
 
 #nav-user {
-	padding-top: 15px;
+	padding-top: 12px;
 	display: inline;
 }
 

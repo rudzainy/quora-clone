@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="/css/normalize.css">
 		<link rel="stylesheet" href="/css/application.css">
 		<link rel="shortcut icon" href="/favicon.ico">
@@ -39,13 +40,20 @@
 					<%= @message %>
 				</div>
 			<% end %>
-			<div id="container-left">&nbsp;</div>
+			<div id="container-left">
+			<div class="container-title"><i class="fa fa-line-chart"></i> trending now</div>
+			<hr>
+			</div>
 			<div id="gutter">&nbsp;</div>
 			<div id="container-content">
 				<%= yield %>
 			</div>
 			<div id="gutter">&nbsp;</div>
 			<div id="container-right">&nbsp;</div>
+			<div class="clearfix"></div>
 		</div>
+		<footer>
+			<a href="#">top</a>
+		</footer>
 	</body>
 </html>

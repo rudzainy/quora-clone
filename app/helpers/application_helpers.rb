@@ -17,4 +17,27 @@ helpers do
       else ((a+180000)/(60*60*24*7)).to_i.to_s+' weeks ago'
     end
   end
+
+	def pluralize(number, text)
+	  return "#{number} #{text.pluralize}" if number != 1
+	  "#{number} #{text}"
+	end
+
+	def count_votes(vote_count)
+		if vote_count == nil
+			vote_count = 0
+		else
+			vote_count = vote_count.count
+		end
+	end
+
+	def current_user
+		if session[:user_id]
+			@current_user ||= User.find(session[:user_id])
+		end
+	end
+
+	def logged_in?
+		!current_user.nil?
+	end
 end

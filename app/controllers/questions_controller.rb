@@ -4,7 +4,7 @@ post '/questions/create' do
 		@question = Question.create(body: params[:question][:body], user_id: current_user.id)
 		@message = "Your question has been posted!"
 		@questions = Question.all
-		erb :"static/index"
+		redirect to "/"
 	else
 		@message = "Please log in or sign up to post questions."
 		erb :"user/new"
