@@ -31,7 +31,7 @@
 		</div>
 		<button>Upvote<%= " | #{@vote_count}" if @vote_count > 0 %></button>
 		<% if answer.user == current_user %>
-			<a href="/answers/<%= answer.id %>/update"><button>Edit answer</button></a>
+			<a href="/answers/<%= answer.id %>/edit"><button>Edit answer</button></a>
 		<% end %>
 	<% end %>
 <% end %>

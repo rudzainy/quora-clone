@@ -1,10 +1,12 @@
 <h2>Edit your answer</h2>
 <form action="/answers/<%= @answer.id %>" method="post">
 	<input type="hidden" name="_method" value="patch">
-	<input type="text" name="answer[body]" value="<%= @answer.body %>">
+	<textarea name="answer[body]"><%= @answer.body %></textarea>
 	<input type="submit" value="Update">
 </form>
+<hr>
 <form action="/answers/<%= @answer.id %>" method="post">
 	<input type="hidden" name="_method" value="delete">
+	Delete answer? <b>(Warning: This action is unreversible!)</b><br>
 	<input type="submit" value="Delete answer">
 </form>

@@ -9,7 +9,7 @@ get '/answers/:id' do
 	erb :"answer/show"
 end
 
-get '/answers/:id/update' do
+get '/answers/:id/edit' do
 	@answer = Answer.find(params[:id])
 	erb :"answer/edit"
 end
