@@ -40,4 +40,8 @@ helpers do
 	def logged_in?
 		!current_user.nil?
 	end
+
+	def all_questions
+		@questions = Question.all.order(created_at: 'desc')
+	end
 end

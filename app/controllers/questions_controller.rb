@@ -3,8 +3,8 @@ post '/questions/create' do
 	if session[:user_id]
 		@question = Question.create(body: params[:question][:body], user_id: current_user.id)
 		@message = "Your question has been posted!"
-		@questions = Question.all
-		redirect to "/"
+		all_questions
+		erb :"static/index"
 	else
 		@message = "Please log in or sign up to post questions."
 		erb :"user/new"
@@ -42,7 +42,7 @@ delete '/questions/:id' do
 		end
 		question.destroy
 		@message = "Question has been successfully deleted."
-		@questions = Question.all
+		all_questions
 		erb :"static/index"
 	end
 end
