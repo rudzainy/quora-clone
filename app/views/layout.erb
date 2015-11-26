@@ -12,18 +12,23 @@
 				<div id="nav-logo">
 					<a href="/">Teng(Quora)k</a>
 				</div>
-				<div id="nav-question">
-					<form action="/questions/create" method="post">
-						<input type="text" name="question[body]" placeholder="Ask Teng(Quora)k" id="question-box" />
-					</form>
+				<div id="flex">
+					<div id="nav-question">
+						<form action="/questions/create" method="post">
+							<input type="text" name="question[body]" placeholder="Ask Teng(Quora)k" id="question-box" />
+						</form>
+					</div>
+					<div id="nav-user">
+						<% if logged_in? %>
+							<a href="/users/<%= current_user.id %> id="nav-username""><%= current_user.name %></a>
+						<% else %>
+							<div class="button">
+								<a href="/login">Sign in</a>
+							</div>
+						<% end %>
+					</div>
 				</div>
-				<div id="nav-user">
-					<% if logged_in? %>
-						<a href="/users/<%= current_user.id %>"><%= current_user.name %></a>
-					<% else %>
-						<a href="/login">Login / Sign up</a>
-					<% end %>
-				</div>
+				
 				<div class="clearfix"></div>
 			</nav>
 		</div>
