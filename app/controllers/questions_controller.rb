@@ -33,8 +33,16 @@ end
 
 delete '/questions/:id' do
 	question = Question.find(params[:id])
-	question.destroy
-	@message = "Question has been successfully deleted."
-	@questions = Question.all
-	erb :"static/index"
+	if question.nil?
+		@message = "Unable to delete question."
+		erb :"question/edit"
+	else
+		question.answers.each do |answer|
+			answer.destroy
+		end
+		question.destroy
+		@message = "Question has been successfully deleted."
+		@questions = Question.all
+		erb :"static/index"
+	end
 end

@@ -1,20 +1,37 @@
+<date>Question asked by <a href="/users/<%= @question.user.id %>"><%= @question.user.name %></a> • <%= calculate_time_ago(@question.created_at) %></date>
 <h2><%= @question.body %></h2>
-by <a href="/users/<%= @question.user.id %>"><%= @question.user.name %></a>
-<% if @question.user == current_user %>
-	<a href="/questions/<%= @question.id %>/update"><button>Edit question</button></a>
-	<%= @vote_count %>
-<% end %>
 
 <% if logged_in? %>
-	<h3>Post your answer</h3>
-	<%= erb :"answer/new" %>
+	<button id="answer-button"><i class="fa fa-pencil"></i> Write answer</button>
 <% end %>
+<button>Upvote<%= " | #{@vote_count}" if @vote_count > 0 %></button>
+<% if @question.user == current_user %>
+	<a href="/questions/<%= @question.id %>/update"><button>Edit question</button></a>
+<% end %>
+
+<div id="answer-box">
+		<h3>Post your answer</h3>
+		<%= erb :"answer/new" %>
+	</div>
 
 <% if @answers %>
 	<% @answers.each do |answer| %>
-		<p><%= answer.body %><br />by <a href="/users/<%= answer.user.id %>"><%= answer.user.name %></a></p>
+		<hr>
+		<div class="avatar-box-left">
+			<img src="/img/mabul.jpg" alt="" class="avatar">
+		</div>
+		<div class="avatar-box-right">
+			<a href="/users/<%= answer.user.id %>"><%= answer.user.name %></a><%= "<span style=\"font-family: sans-serif;\">, #{answer.user.description}</span>" if answer.user.description %><br>
+			<date><%= pluralize(answer.user.questions.count, 'question') %> asked • <%= pluralize(answer.user.answers.count, 'question') %> answered</date>
+		</div>
+		<div class="clearfix"></div>
+		<div class="answer">
+			<%= answer.body %><br />
+			<date>Updated <%= calculate_time_ago(answer.updated_at) %></date>
+		</div>
+		<button>Upvote<%= " | #{@vote_count}" if @vote_count > 0 %></button>
 		<% if answer.user == current_user %>
-	<a href="/answers/<%= answer.id %>/update"><button>Edit answer</button></a>
-<% end %>
+			<a href="/answers/<%= answer.id %>/update"><button>Edit answer</button></a>
+		<% end %>
 	<% end %>
 <% end %>
