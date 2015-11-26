@@ -24,8 +24,12 @@
 			<div class="answer">
 				<%= question.answers.last.body[0..100].gsub(/\s\w+\s*$/,'...') %> (<a href="/questions/<%= question.id %>">more</a>)
 			</div>
-		
-			<button>Upvote</button>
+			<form action="/questions/<%= question.id %>/answer/<%= question.answers.last.id %>/upvote" method="post" class="form-inline">
+				<button>Upvote<%= "&nbsp;<span class='bar'>&nbsp;</span>#{question.answers.last.count_votes}" if question.answers.last.count_votes != 0 %></button>
+			</form>
+			<form action="/questions/<%= question.id %>/answer/<%= question.answers.last.id %>/downvote" method="post" class="form-inline">
+				<input type="submit" value="Downvote" class="downvote">
+			</form>
 		<% end %>
 	<% end %>
 <% end %>

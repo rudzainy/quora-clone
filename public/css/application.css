@@ -137,7 +137,8 @@ footer {
 }
 
 .bar {
-	margin-left: 2px;
+	margin-left: 3px;
+	margin-right: 2px;
 	border-left: 1px solid #a9ccee;
 }
 
@@ -152,6 +153,10 @@ footer {
 
 .downvote:hover {
 	text-decoration: underline !important;
+}
+
+.right {
+	float: right;
 }
 
 #main-container, #top-nav {
