@@ -1,10 +1,12 @@
 <h2>Edit your question</h2>
 <form action="/questions/<%= @question.id %>" method="post">
 	<input type="hidden" name="_method" value="patch">
-	<input type="text" name="question[body]" value="<%= @question.body %>">
+	<textarea name="question[body]"><%= @question.body %>"></textarea>
 	<input type="submit" value="Update">
 </form>
+<hr>
 <form action="/questions/<%= @question.id %>" method="post">
 	<input type="hidden" name="_method" value="delete">
+	Delete question? <b>(Warning: This action is unreversible!)</b><br>
 	<input type="submit" value="Delete question">
 </form>
