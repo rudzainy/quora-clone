@@ -2,6 +2,12 @@
 <% if @questions %>
 	<% @questions.each do |question| %>
 		<hr>
-		<p><a href="/questions/<%= question.id %>"><%= question.body %></a><br />by <a href="/users/<%= question.user.id %>"><%= question.user.name %></a></p>
+		<p>
+			<a href="/questions/<%= question.id %>"><%= question.body %></a>
+		</p>
+		<div>
+			<img src="/img/mabul.jpg" alt="" class="avatar">
+			<a href="/users/<%= question.user.id %>"><%= question.user.name %></a>
+		</div>
 	<% end %>
 <% end %>
