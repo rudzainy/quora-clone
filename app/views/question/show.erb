@@ -5,8 +5,10 @@ by <a href="/users/<%= @question.user.id %>"><%= @question.user.name %></a>
 	<%= @vote_count %>
 <% end %>
 
-<h3>Post your answer</h3>
-<%= erb :"answer/new" %>
+<% if logged_in? %>
+	<h3>Post your answer</h3>
+	<%= erb :"answer/new" %>
+<% end %>
 
 <% if @answers %>
 	<% @answers.each do |answer| %>
