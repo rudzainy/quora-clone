@@ -1,6 +1,6 @@
 <form action="/answers/create" method="post">
 	<textarea name="answer[body]" placeholder="Write your answer here"></textarea>
 	<input type="hidden" name="answer[question_id]" value="<%= @question.id %>">
-	<input type="hidden" name="answer[user_id]" value="<%= current_user.id %>">
+	<input type="hidden" name="answer[user_id]" value="<%= current_user.id if logged_in? %>">
 	<input type="submit" value="Submit">
 </form>

@@ -14,7 +14,7 @@
 			<button><i class="fa fa-pencil"></i> Write answer</button>
 		<% else %>
 			<div class="avatar-box-left">
-				<img src="/img/mabul.jpg" alt="" class="avatar">
+				<img src="<%= question.answers.last.user.avatar %>" alt="" class="avatar">
 			</div>
 			<div class="avatar-box-right">
 				<a href="/users/<%= question.answers.last.user.id %>"><%= question.answers.last.user.name %></a><%= "<span style=\"font-family: sans-serif;\">, #{question.answers.last.user.description}</span>" if question.answers.last.user.description %><br>
