@@ -35,6 +35,7 @@ button, input[type="submit"] {
 	font-weight: 600;
 	font-size: .75em;
 	font-family: sans-serif;
+	margin-right: 10px;
 }
 
 button:hover, input[type="submit"]:hover {
@@ -133,6 +134,13 @@ li:before {
 .avatar {
 	width: 40px;
 	height: 40px;
+	border-radius: 50%;
+	border: 2px solid #ccc;
+}
+
+.avatar-large {
+	width: 150px;
+	height: 150px;
 	border-radius: 50%;
 	border: 2px solid #ccc;
 }
@@ -251,6 +259,24 @@ li:before {
 	margin: -5px 10px 0 10px;
 }
 
+#half-left {
+	box-sizing: border-box;
+	width: 50%;
+	float: left;
+	padding: 10px;
+	position: relative;
+	clear: none;
+}
+
+#half-right {
+	box-sizing: border-box;
+	width: 50%;
+	float: right;
+	position: relative;
+	padding: 10px;
+	clear: none;
+}
+
 #nav-logo {
 	padding-top: 12px;
 	width: 165px;
@@ -299,10 +325,13 @@ li:before {
 }
 
 #message-container {
-	border: solid 1px #B92B27;
-	color: #B92B27;
-	font-weight: bold;
-	font-family: serif;
+	color: #2b6dad;
+	background-color: #f1f8fb;
+	border-radius: 3px;
+	border: 1px solid #bbcadc;
+	font-weight: 600;
+	font-size: .75em;
+	font-family: sans-serif;
 	padding: 10px 10px;
 	margin: 0 auto 30px auto;
 	text-align: center;
@@ -332,6 +361,22 @@ li:before {
 #answer-box {
 	margin-top: 10px;
 	margin-bottom: 0px;
+}
+
+#profile-description {
+	font-size: 16pt;
+	font-family: sans-serif;
+	margin-top: 15px;
+	margin-bottom: 0px;
+	color: #999;
+}
+
+#profile-subtext {
+	font-size: 10pt;
+	font-family: sans-serif;
+	margin-top: 10px;
+	margin-bottom: 0px;
+	color: #999999;
 }
 
 #index-title {

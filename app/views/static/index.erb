@@ -10,17 +10,19 @@
 		<h3>
 			<a href="/questions/<%= question.id %>"><%= question.body %></a>
 		</h3>
-		<% if question.answers.empty? && logged_in? %>
-			<button id="answer-button"><i class="fa fa-pencil"></i> Write answer</button>
-			<div id="answer-box">
-				<h3>Post your answer</h3>
-				<form action="/answers/create" method="post">
-					<textarea name="answer[body]" placeholder="Write your answer here"></textarea>
-					<input type="hidden" name="answer[question_id]" value="<%= question.id %>">
-					<input type="hidden" name="answer[user_id]" value="<%= current_user.id if logged_in? %>">
-					<input type="submit" value="Submit">
-				</form>
-			</div>
+		<% if question.answers.empty? %>
+			<% if logged_in? %>
+				<button id="answer-button"><i class="fa fa-pencil"></i> Write answer</button>
+				<div id="answer-box">
+					<h3>Post your answer</h3>
+					<form action="/answers/create" method="post">
+						<textarea name="answer[body]" placeholder="Write your answer here"></textarea>
+						<input type="hidden" name="answer[question_id]" value="<%= question.id %>">
+						<input type="hidden" name="answer[user_id]" value="<%= current_user.id if logged_in? %>">
+						<input type="submit" value="Submit">
+					</form>
+				</div>
+			<% end %>
 		<% else %>
 			<div class="avatar-box-left">
 				<img src="<%= question.answers.last.user.avatar %>" alt="<%= question.answers.last.user.name %>" class="avatar">
