@@ -2,6 +2,7 @@ post '/signup' do
 	user = User.create(params[:user])
 	@message = "Signed up. You may now login."
 	all_questions
+	@index = true
 	erb :"static/index"
 end
 
@@ -19,6 +20,7 @@ post '/login' do
 		else
 			@message = "Welcome back!"
 			all_questions
+			@index = true
 			erb :"static/index"
 		end
 	end
@@ -32,6 +34,7 @@ get '/logout' do
 	session[:user_id] = nil
 	@message = "You are successfully logged out."
 	all_questions
+	@index = true
 	erb :"static/index"
 end
 

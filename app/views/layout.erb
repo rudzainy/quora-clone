@@ -37,27 +37,31 @@
 			</nav>
 		</div>
 		<div id="main-container">
-			<% if @message %>
-				<div id="message-container">
-					<%= @message %>
+			<% if @index %>
+				<% if @message %>
+					<div id="message-container">
+						<%= @message %>
+					</div>
+				<% end %>
+				<div id="container-left">
+				<div class="container-title"><i class="fa fa-line-chart"></i> trending now</div>
+				<hr>
+				<ul>
+				<% trendings.each do |question| %>
+					<li><a href="/questions/<%= question.id %>"><%= question.body[0..30].gsub(/\s\w+\s*$/,'...')%></a></li>
+				<% end %>
+				</ul>
 				</div>
-			<% end %>
-			<div id="container-left">
-			<div class="container-title"><i class="fa fa-line-chart"></i> trending now</div>
-			<hr>
-			<ul>
-			<% trendings.each do |question| %>
-				<li><a href="/questions/<%= question.id %>"><%= question.body[0..30].gsub(/\s\w+\s*$/,'...')%></a></li>
-			<% end %>
-			</ul>
-			</div>
-			<div id="gutter">&nbsp;</div>
-			<div id="container-content">
+				<div id="gutter">&nbsp;</div>
+				<div id="container-content">
+					<%= yield %>
+				</div>
+				<div id="gutter">&nbsp;</div>
+				<div id="container-right">&nbsp;</div>
+					<div class="clearfix"></div>
+			<% else %>
 				<%= yield %>
-			</div>
-			<div id="gutter">&nbsp;</div>
-			<div id="container-right">&nbsp;</div>
-			<div class="clearfix"></div>
+			<% end %>
 		</div>
 		<footer>You are awesome for finding this hidden message! ("\( ^ o ^ )/")</footer>
 	</body>

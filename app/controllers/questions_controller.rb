@@ -4,6 +4,7 @@ post '/questions/create' do
 		@question = Question.create(body: params[:question][:body], user_id: current_user.id)
 		@message = "Your question has been posted!"
 		all_questions
+		@index = true
 		erb :"static/index"
 	else
 		@message = "Please log in or sign up to post questions."
@@ -42,6 +43,7 @@ delete '/questions/:id' do
 		question.destroy
 		@message = "Question has been successfully deleted."
 		all_questions
+		@index = true
 		erb :"static/index"
 	end
 end

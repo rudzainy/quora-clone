@@ -1,26 +1,31 @@
-<h2><%= @user.name %>'s profile</h2>
-<%= @user.name %><br />
-<%= @user.email %><br />
-
+<div class="avatar-box-left">
+	<img src="<%= @user.avatar %>" alt="<%= @user.name %>" class="avatar">
+</div>
+<div class="avatar-box-right">
+	<a href="/users/<%= @user.id %>"><%= @user.name %></a><%= "<span style=\"font-family: sans-serif;\">, #{@user.description}</span>" if @user.description %><br>
+	<date><%= @user.email %> • member since <%= calculate_time_ago(@user.created_at) %></date>
+</div>
+<div class="clearfix"></div>
 <% if @user == current_user %>
-	<a href="/users/<%= @user.id %>/update"><button>Edit profile</button></a>
+	<a href="/users/<%= @user.id %>/update" class="right"><button>Edit profile</button></a>
 <% end %>
+<br><br>
 
-<h3><%= @user.name %>'s Questions</h3>
+<h4><%= pluralize(@user.questions.count, 'question') %> asked</h4>
 
 <% if @questions %>
 	<% @questions.each do |question| %>
-		<p><a href="/questions/<%= question.id %>"><%= question.body %></a><br />by <a href="/users/<%= question.user.id %>"><%= question.user.name %></a></p>
+	<hr>
+		<p><a href="/questions/<%= question.id %>"><%= question.body[0..100].gsub(/\s\w+\s*$/,'...') %></a><br />by <a href="/users/<%= question.user.id %>"><%= question.user.name %></a></p>
 	<% end %>
 <% else %>
 	<p>User has no questions</p>
 <% end %>
 
-
-<h3><%= @user.name %>'s Answers</h3>
+<h4><%= pluralize(@user.answers.count, 'question') %> answered</h4>
 <% if @answers %>
 	<% @answers.each do |answer| %>
-		<p><a href="/questions/<%= answer.question.id %>"><%= answer.body %></a><br />by <a href="/users/<%= answer.user.id %>"><%= answer.user.name %></a></p>
+		<p><a href="/questions/<%= answer.question.id %>"><%= answer.body[0..100].gsub(/\s\w+\s*$/,'...') %></a><br />by <a href="/users/<%= answer.user.id %>"><%= answer.user.name %></a></p>
 	<% end %>
 <% else %>
 	<p>User has no answers</p>
