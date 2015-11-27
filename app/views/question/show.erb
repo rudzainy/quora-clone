@@ -24,7 +24,7 @@
 	<% @answers.each do |answer| %>
 		<hr>
 		<div class="avatar-box-left">
-			<img src="/img/mabul.jpg" alt="" class="avatar">
+			<img src="<%= answer.user.avatar %>" alt="<%= answer.user.name %>" class="avatar">
 		</div>
 		<div class="avatar-box-right">
 			<a href="/users/<%= answer.user.id %>"><%= answer.user.name %></a><%= "<span style=\"font-family: sans-serif;\">, #{answer.user.description}</span>" if answer.user.description %><br>

@@ -36,4 +36,8 @@ helpers do
 	def all_questions
 		@questions = Question.all.order(created_at: 'desc')
 	end
+
+  def trendings
+    Question.all.sort_by { |question| question.answers.size }.reverse.first(5)
+  end
 end
