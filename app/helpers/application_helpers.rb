@@ -34,7 +34,7 @@ helpers do
 	end
 
 	def all_questions
-		@questions = Question.all.order(created_at: 'desc')
+		@questions = Question.all.order(created_at: 'desc').paginate(:page => params[:page], :per_page => 10)
 	end
 
   def trendings

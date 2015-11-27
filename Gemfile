@@ -39,3 +39,4 @@ end
 
 gem 'bcrypt'
 gem 'byebug'
+gem 'will_paginate', '~> 3.0.6'

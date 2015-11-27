@@ -78,6 +78,7 @@ GEM
     tilt (2.0.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    will_paginate (3.0.7)
 
 PLATFORMS
   ruby
@@ -98,6 +99,7 @@ DEPENDENCIES
   sinatra-activerecord
   sinatra-contrib
   thin
+  will_paginate (~> 3.0.6)
 
 BUNDLED WITH
    1.10.6
