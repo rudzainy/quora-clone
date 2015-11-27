@@ -18,8 +18,11 @@
 
 	<% if @questions %>
 		<% @questions.each do |question| %>
-		<hr>
-			<p><a href="/questions/<%= question.id %>"><%= question.body[0..100].gsub(/\s\w+\s*$/,'...') %></a><br />by <a href="/users/<%= question.user.id %>"><%= question.user.name %></a></p>
+			<hr>
+			<p>
+				<a href="/questions/<%= question.id %>"><%= question.body[0..100].gsub(/\s\w+\s*$/,'...') %></a><br />
+				<date>Question asked <%= calculate_time_ago(question.created_at) %> • <%= pluralize(question.answers.count, 'person') %> have answered</date>
+			</p>
 		<% end %>
 	<% else %>
 		<p>User has no questions</p>
@@ -29,7 +32,11 @@
 	<h4><%= pluralize(@user.answers.count, 'question') %> answered</h4>
 	<% if @answers %>
 		<% @answers.each do |answer| %>
-			<p><a href="/questions/<%= answer.question.id %>"><%= answer.body[0..100].gsub(/\s\w+\s*$/,'...') %></a><br />by <a href="/users/<%= answer.user.id %>"><%= answer.user.name %></a></p>
+			<hr>
+			<p>
+				<a href="/questions/<%= answer.question.id %>"><%= answer.body[0..100].gsub(/\s\w+\s*$/,'...') %></a><br />
+				<date>Question answered <%= calculate_time_ago(answer.created_at) %> in <a href="/questions/<%= answer.question.id %>"><%= answer.question.body[0..30].gsub(/\s\w+\s*$/,'...') %></a></date>
+			</p>
 		<% end %>
 	<% else %>
 		<p>User has no answers</p>
