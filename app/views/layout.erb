@@ -45,20 +45,37 @@
 					</div>
 				<% end %>
 				<div id="container-left">
-				<div class="container-title"><i class="fa fa-line-chart"></i> trending now</div>
-				<hr>
-				<ul>
-				<% trendings.each do |question| %>
-					<li><a href="/questions/<%= question.id %>"><%= question.body[0..30].gsub(/\s\w+\s*$/,'...')%></a></li>
-				<% end %>
-				</ul>
+					<div class="container-title"><i class="fa fa-line-chart"></i> trending now</div>
+					<hr>
+					<ul>
+					<% trendings.each do |question| %>
+						<li><a href="/questions/<%= question.id %>"><%= question.body[0..30].gsub(/\s\w+\s*$/,'...')%></a></li>
+					<% end %>
+					</ul>
 				</div>
 				<div id="gutter">&nbsp;</div>
 				<div id="container-content">
 					<%= yield %>
 				</div>
 				<div id="gutter">&nbsp;</div>
-				<div id="container-right">&nbsp;</div>
+				<div id="container-right">
+					<div class="container-title"><i class="fa fa-users"></i> active users</div>
+					<hr>
+					<ul>
+					<% actives.each do |user| %>
+						<li class="list-user">
+							<div class="avatar-box-left">
+								<img src="<%= user.avatar %>" alt="<%= user.name %>" class="avatar-small">
+							</div>
+							<div class="avatar-box-right">
+								<span><a href="/users/<%= user.id %>"><%= user.name %></a></span><br>
+								<date><%= pluralize(user.answers.count, 'question') %> answered</date>
+							</div>
+							<div class="clearfix"></div>
+						</li>
+					<% end %>
+					</ul>
+				</div>
 					<div class="clearfix"></div>
 			<% else %>
 				<%= yield %>

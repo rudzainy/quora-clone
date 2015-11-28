@@ -113,6 +113,10 @@ li:before {
     color: #648eb7;
 }
 
+li.list-user:before {
+	content: "";
+}
+
 .clearfix {
 	clear: both;
 }
@@ -131,18 +135,25 @@ li:before {
 	border: 1px solid #000;
 }
 
+.avatar, .avarat-large, .avatar-small {
+	border-radius: 50%;
+	border: 2px solid #ccc;	
+}
+
 .avatar {
 	width: 40px;
 	height: 40px;
-	border-radius: 50%;
-	border: 2px solid #ccc;
 }
 
 .avatar-large {
 	width: 150px;
 	height: 150px;
-	border-radius: 50%;
-	border: 2px solid #ccc;
+}
+
+.avatar-small {
+	width: 25px;
+	height: 25px;
+	margin-top: 4px;
 }
 
 .avatar-box-left {
@@ -153,6 +164,10 @@ li:before {
 .avatar-box-right {
 	line-height: 1.3em;
 	font-size: .9em;
+}
+
+.avatar-box-right span {
+	padding-left: 12px;
 }
 
 .container-title {

@@ -40,4 +40,8 @@ helpers do
   def trendings
     Question.all.sort_by { |question| question.answers.size }.reverse.first(5)
   end
+
+  def actives
+    User.all.sort_by { |user| user.answers.count }.reverse.first(5)
+  end
 end
