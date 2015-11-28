@@ -1,15 +1,20 @@
-<h2>Sign up</h2>
-<form action="/signup" method="post">
-	<input type="text" placeholder="Email" name="user[email]">
-	<input type="password" placeholder="Password" name="user[password]">
-	<br>
-	<input type="submit" value="Sign up">
-</form>
-
-<h2>Login</h2>
-<form action="/login" method="post">
-	<input type="text" placeholder="Email" name="user[email]">
-	<input type="password" placeholder="Password" name="user[password]">
-	<br>
-	<input type="submit" value="Login">
-</form>
+<div id="half-left">
+	<p>&nbsp;</p>
+	<h2>Sign in</h2>
+	<hr>
+	<form action="/login" method="post">
+		<input type="text" placeholder="Email" name="user[email]" style="width: 94%;"><br>
+		<input type="password" placeholder="Password" name="user[password]" style="width: 94%;"><br>
+		<input type="submit" value="Sign in">
+	</form>
+</div>
+<div id="half-right">
+	<p>Don't have an account?</p>
+	<h2>Sign up</h2>
+	<hr>
+	<form action="/signup" method="post">
+		<input type="text" placeholder="Email" name="user[email]" style="width: 94%;"><br>
+		<input type="password" placeholder="Password" name="user[password]" style="width: 94%;"><br>
+		<input type="submit" value="Sign up">
+	</form>	
+</div>

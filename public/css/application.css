@@ -190,6 +190,10 @@ li:before {
 	float: right;
 }
 
+.center {
+	text-align: center;
+}
+
 .pagination {
   text-align: center;
   margin-top: 15px;
@@ -263,7 +267,7 @@ li:before {
 	box-sizing: border-box;
 	width: 50%;
 	float: left;
-	padding: 10px;
+	padding: 10px 10px 10px 0px;
 	position: relative;
 	clear: none;
 }
@@ -306,6 +310,7 @@ li:before {
 	background-color: #EEEEEE;
 	border: none;
 	padding-left: 10px;
+	font-family: sans-serif;
 }
 
 #nav-user {
@@ -358,7 +363,7 @@ li:before {
 	position: relative;
 }
 
-#answer-box {
+.answer-box {
 	margin-top: 10px;
 	margin-bottom: 0px;
 }

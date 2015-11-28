@@ -2,7 +2,7 @@
 <h2><%= @question.body %></h2>
 
 <% if logged_in? %>
-	<button id="answer-button"><i class="fa fa-pencil"></i> Write answer</button>
+	<button class="answer-button"><i class="fa fa-pencil"></i> Write answer</button>
 <% end %>
 <form action="/questions/<%= @question.id %>/upvote" method="post" class="form-inline">
 	<button>Upvote<%= "&nbsp;<span class='bar'>&nbsp;</span>#{@question_vote_count}" if @question_vote_count != 0 %></button>
@@ -15,7 +15,7 @@
 	<a href="/questions/<%= @question.id %>/edit" class="right"><button>Edit question</button></a>
 <% end %>
 
-<div id="answer-box">
+<div class="answer-box">
 	<h3>Post your answer</h3>
 	<%= erb :"answer/new" %>
 </div>

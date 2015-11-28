@@ -12,8 +12,8 @@
 		</h3>
 		<% if question.answers.empty? %>
 			<% if logged_in? %>
-				<button id="answer-button"><i class="fa fa-pencil"></i> Write answer</button>
-				<div id="answer-box">
+				<button class="answer-button"><i class="fa fa-pencil"></i> Write answer</button>
+				<div class="answer-box">
 					<h3>Post your answer</h3>
 					<form action="/answers/create" method="post">
 						<textarea name="answer[body]" placeholder="Write your answer here"></textarea>

@@ -4,21 +4,22 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="/css/normalize.css">
 		<link rel="stylesheet" href="/css/application.css">
+		<link rel="stylesheet" href="/css/login.css">
 		<link rel="shortcut icon" href="/favicon.ico">
+		<title>Teng-Quora-k</title>
 		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 		<script src="/js/application.js"></script>
-		<title>Teng(Quora)k</title>
 	</head>
 	<body>
 		<div id="navbar-container">
 			<nav id="top-nav">
 				<div id="nav-logo">
-					<a href="/">Teng(Quora)k</a>
+					<a href="/">Teng-Quora-k</a>
 				</div>
 				<div id="flex">
 					<div id="nav-question">
 						<form action="/questions/create" method="post">
-							<input type="text" name="question[body]" placeholder="Ask Teng(Quora)k" id="question-box" />
+							<input type="text" name="question[body]" placeholder="Ask Teng-Quora-k" id="question-box" />
 						</form>
 					</div>
 					<div id="nav-user">
@@ -27,7 +28,7 @@
 							<span id="nav-username"><a href="/users/<%= current_user.id %>"><%= current_user.name %></a></span>
 						<% else %>
 							<div class="button">
-								<a href="/login">Sign in</a>
+								<a href="/login" class="login">Sign in</a>
 							</div>
 						<% end %>
 					</div>
@@ -63,6 +64,18 @@
 				<%= yield %>
 			<% end %>
 		</div>
+		
+		<!-- modal content -->
+		<div id="login-modal-content">
+			<div id="login-modal-title">Teng-Quora-k</div>
+			<div class="close"><a href="#" class="simplemodal-close">x</a></div>
+			<div id="login-modal-data">
+				<%= erb :"user/new" %>
+				<!-- <p><button class="simplemodal-close">Close</button> <span>(or press ESC or click the overlay)</span></p> -->
+			</div>
+		</div>
 		<footer>You are awesome for finding this hidden message! ("\( ^ o ^ )/")</footer>
+		<script src="/js/jquery.simplemodal-1.4.4.js"></script>
+		<script src="/js/login.js"></script>
 	</body>
 </html>
