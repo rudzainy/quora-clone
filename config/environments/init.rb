@@ -53,3 +53,6 @@ Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 # Setup controller (C)
 Dir[APP_ROOT.join('app', 'controllers', '*.rb')].each { |file| require file }
 ######################################################################
+
+# Setup public folder
+set :public_folder, File.join(APP_ROOT, "public")
