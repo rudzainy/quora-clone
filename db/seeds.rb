@@ -1,6 +1,9 @@
 # Create default user
 User.create(name: 'Tommy Middlefinger', email: 'tommy@gmail.com', password: '123456', description: '50% Jedi, 50% Sith, 100% Vulcan', avatar: "http://localhost:9393/img/mabul.jpg")
 
+# Create anonymous user
+User.create(name: 'Anonymous', email: 'anon@gmail.com', password: '123456')
+
 # Seed 50 random users
 50.times do
 	description = Faker::Name.title + ", " + Faker::Company.bs.capitalize
