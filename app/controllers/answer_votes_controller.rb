@@ -1,9 +1,9 @@
 post '/questions/:question_id/answer/:answer_id/upvote' do
-	@question = Question.find(params[:question_id])
-	answer = Answer.find(params[:answer_id])
-	answer_vote = AnswerVote.find_by(answer_id: answer.id, user_id: current_user.id)
 	
 	if session[:user_id]
+		@question = Question.find(params[:question_id])
+		answer = Answer.find(params[:answer_id])
+		answer_vote = AnswerVote.find_by(answer_id: answer.id, user_id: current_user.id)
 		if !answer_vote.nil?
 			if answer_vote.downvoted?
 				answer_vote.change_vote
@@ -27,11 +27,11 @@ post '/questions/:question_id/answer/:answer_id/upvote' do
 end
 
 post '/questions/:question_id/answer/:answer_id/downvote' do
-	@question = Question.find(params[:question_id])
-	answer = Answer.find(params[:answer_id])
-	answer_vote = AnswerVote.find_by(answer_id: answer.id, user_id: current_user.id)
 	
 	if session[:user_id]
+		@question = Question.find(params[:question_id])
+		answer = Answer.find(params[:answer_id])
+		answer_vote = AnswerVote.find_by(answer_id: answer.id, user_id: current_user.id)
 		if !answer_vote.nil?
 			if answer_vote.upvoted?
 				answer_vote.change_vote

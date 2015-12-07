@@ -38,12 +38,12 @@
 			</nav>
 		</div>
 		<div id="main-container">
+			<% if @message %>
+				<div id="message-container">
+					<%= @message %>
+				</div>
+			<% end %>
 			<% if @index %>
-				<% if @message %>
-					<div id="message-container">
-						<%= @message %>
-					</div>
-				<% end %>
 				<div id="container-left">
 					<div class="container-title"><i class="fa fa-line-chart"></i> trending now</div>
 					<hr>

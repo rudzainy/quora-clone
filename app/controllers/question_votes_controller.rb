@@ -1,8 +1,8 @@
 post '/questions/:id/upvote' do
-	@question = Question.find(params[:id])
-	question_vote = QuestionVote.find_by(question_id: @question.id, user_id: current_user.id)
-	
+
 	if session[:user_id]
+		@question = Question.find(params[:id])
+		question_vote = QuestionVote.find_by(question_id: @question.id, user_id: current_user.id)
 		if !question_vote.nil?
 			if question_vote.downvoted?
 				question_vote.change_vote
@@ -26,10 +26,10 @@ post '/questions/:id/upvote' do
 end
 
 post '/questions/:id/downvote' do
-	@question = Question.find(params[:id])
-	question_vote = QuestionVote.find_by(question_id: @question.id, user_id: current_user.id)
 	
 	if session[:user_id]
+		@question = Question.find(params[:id])
+		question_vote = QuestionVote.find_by(question_id: @question.id, user_id: current_user.id)
 		if !question_vote.nil?
 			if question_vote.upvoted?
 				question_vote.change_vote
