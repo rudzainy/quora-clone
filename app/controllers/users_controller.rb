@@ -1,9 +1,7 @@
 post '/signup' do
 	user = User.create(params[:user])
 	@message = "Signed up. You may now login."
-	all_questions
-	@index = true
-	erb :"static/index"
+	redirect to '/'
 end
 
 post '/login' do
@@ -13,15 +11,13 @@ post '/login' do
 		erb :"user/new"
 	else
 		session[:user_id] = @user.id
-		
+
 		if @user.name == nil
 			@message = "Welcome to Kuora! Please update your profile here."
 			erb :"user/edit"
 		else
 			@message = "Welcome back!"
-			all_questions
-			@index = true
-			erb :"static/index"
+			redirect to '/'
 		end
 	end
 end
@@ -33,9 +29,7 @@ end
 get '/logout' do
 	session[:user_id] = nil
 	@message = "You are successfully logged out."
-	all_questions
-	@index = true
-	erb :"static/index"
+	redirect to '/'
 end
 
 get '/users/:id' do

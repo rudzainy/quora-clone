@@ -2,13 +2,13 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="/css/normalize.css">
-		<link rel="stylesheet" href="/css/application.css">
-		<link rel="stylesheet" href="/css/login.css">
-		<link rel="shortcut icon" href="/favicon.ico">
+		<link rel="stylesheet" href="<%= url('/css/normalize.css') %>">
+		<link rel="stylesheet" href="<%= url('/css/application.css') %>">
+		<link rel="stylesheet" href="<%= url('/css/login.css') %>">
+		<link rel="shortcut icon" href="<%= url('/favicon.ico') %>">
 		<title>Teng-Quora-k</title>
 		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-		<script src="/js/application.js"></script>
+		<script src="<%= url('/js/application.js') %>"></script>
 	</head>
 	<body>
 		<div id="navbar-container">
@@ -33,7 +33,7 @@
 						<% end %>
 					</div>
 				</div>
-				
+
 				<div class="clearfix"></div>
 			</nav>
 		</div>
@@ -68,7 +68,7 @@
 								<img src="<%= user.avatar %>" alt="<%= user.name %>" class="avatar-small">
 							</div>
 							<div class="avatar-box-right">
-								<span><a href="/users/<%= user.id %>"><%= user.name %></a></span><br>
+								<span class="sidebar"><a href="/users/<%= user.id %>"><%= user.name %></a></span><br>
 								<date><%= pluralize(user.answers.count, 'question') %> answered</date>
 							</div>
 							<div class="clearfix"></div>
@@ -81,7 +81,7 @@
 				<%= yield %>
 			<% end %>
 		</div>
-		
+
 		<!-- modal content -->
 		<div id="login-modal-content">
 			<div id="login-modal-title">Teng-Quora-k</div>
